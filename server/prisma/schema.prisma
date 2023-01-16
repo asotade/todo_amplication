@@ -17,3 +17,19 @@ model User {
   updatedAt DateTime @updatedAt
   username  String   @unique
 }
+
+model Todo {
+  createdAt   DateTime       @default(now())
+  description String?
+  id          String         @id @default(cuid())
+  status      EnumTodoStatus
+  title       String
+  updatedAt   DateTime       @updatedAt
+}
+
+enum EnumTodoStatus {
+  created
+  inProgress
+  done
+  deleted
+}
